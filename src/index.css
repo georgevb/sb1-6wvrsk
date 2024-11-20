@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Brand Colors */
+    --color-black: #000000;
+    --color-mint-green: #45BFA5;
+    --color-gold: #FFA726;
+    --color-dark-mint: #2A9D8F;
+    --color-off-white: #F5F5F5;
+    --color-dark-gray: #1A1A1A;
+  }
+
+  html {
+    font-family: 'Poppins', system-ui, sans-serif;
+    background-color: var(--color-black);
+    color: var(--color-off-white);
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-mint-green text-white px-8 py-4 rounded-lg font-medium 
+           transition-all duration-200 hover:bg-dark-mint hover:-translate-y-0.5
+           shadow-lg shadow-mint-green/20 hover:shadow-mint-green/30;
+  }
+
+  .btn-secondary {
+    @apply bg-transparent text-off-white px-8 py-4 rounded-lg font-medium
+           border-2 border-mint-green/20 transition-all duration-200
+           hover:border-mint-green hover:-translate-y-0.5;
+  }
+
+  .card {
+    @apply bg-dark-gray border border-white/10 rounded-xl p-8
+           transition-all duration-300 hover:border-mint-green
+           hover:-translate-y-1 hover:shadow-xl hover:shadow-mint-green/10;
+  }
+
+  .section-title {
+    @apply text-4xl md:text-5xl font-bold text-gold mb-6;
+  }
+
+  .section-subtitle {
+    @apply text-xl text-off-white/80 mb-12 max-w-2xl mx-auto;
+  }
+}
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Interactive Feature Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.feature-demo {
+  animation: fadeIn 0.3s ease-out;
+}
